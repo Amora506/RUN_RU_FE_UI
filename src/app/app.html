@@ -1,25 +1,23 @@
-<div class="wrapper">
-  <div class="container">
-    <div class="login-box">
-      <h2>Sign In</h2>
-      <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input  name="email" type="email" id="email" placeholder="you@example.com" />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input  name="password" type="password" id="password" placeholder="••••••••" />
-        </div>
-        <div class="form-footer">
-          <label class="checkbox">
-            <input  name="remember" type="checkbox" /> Remember me
-          </label>
-          <a href="#">Forgot?</a>
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      <p class="signup">Don't have an account? <a href="#">Sign up</a></p>
-    </div>
-  </div>
-</div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #menuNav
+    mode="side"
+    class="sidenav"
+    [opened]="true">
+    <div class="logo">MyApp</div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="Home">Inicio</a>
+      <a mat-list-item routerLink="/Administration">Administracion</a>
+      <a mat-list-item routerLink="/About">Acerca de</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar color="primary" class="custom-toolbar">
+      <button mat-icon-button class="menu-button" (click)="menuNav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
